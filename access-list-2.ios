@@ -1,0 +1,92 @@
+! some paranoid NOs.  these are here to squash certain types
+! 	of spoofing behavior fast
+!
+! deny external spoofing
+access-list 122 deny   ip <my class B> 0.0.255.255 any
+!
+! deny spoofing from "reserved" addresses
+access-list 122 deny   ip 10.0.0.0 0.255.255.255 any
+access-list 122 deny   ip 127.0.0.0 0.255.255.255 any
+access-list 122 deny   ip 172.16.0.0 0.15.255.255 any
+access-list 122 deny   ip 192.168.0.0 0.0.255.255 any
+access-list 122 deny   ip host 0.0.0.0 any
+access-list 122 deny   ip host 255.255.255.255 any
+
+! just say no to ICMP denial of service attacks
+! assumption here is that we are class B/24. 
+!
+access-list 122 deny   icmp any 0.0.0.255 255.255.255.0
+access-list 122 deny   icmp any 0.0.0.0 255.255.255.0
+
+! just say no to all unauthorized tunnels
+access-list 122 deny   ipinip any any 
+access-list 122 deny   gre any any
+
+! deny external access to my router (check NTP below though)
+! e.g., if router is NTP peer/server you would want to enable
+! that before this line
+! alternative: you might just block external telnet access on the vty line
+! access-list 122 deny   ip <my site> <mask>  host <router address>
+! access-list 122 deny   ip <my site> <mask>  host <router address>
+! access-list 122 deny   ip <my site> <mask>  host <router address>
+! 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!	
+! PERMIT a few SERVICES, then DENY ALL
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! permit access to a certain subnet
+access-list 122 permit   ip any 103.75.201.0 0.0.0.255
+access-list 122 permit   ip any 103.75.200.0 0.0.0.255
+access-list 122 permit   ip any 27.100.7.0 0.0.0.255
+!
+! permit access to a certain bastion host
+! you may want to be more restrictive of course
+! BUT remember to think through problems 2-ways (client port/server port)
+!
+access-list 122 permit   ip any host <host address>
+
+! Wherever possible, limit traffic 
+!
+! eg replace "any" with "host <host address>"
+!    replace "any" with "<subnet> <subnet mask>"
+!
+
+! permit ftp to ftp bastion host server
+!ftp tcp 20 & 21
+access-list 122 permit   tcp any host <ftp-bastion-host> eq 20	
+access-list 122 permit   tcp any host <ftp-bastion-host> eq 21
+!
+!secure shell (ssh) tcp 22
+access-list 122 permit   tcp any host <ftp-bastion-host> eq 22
+!
+!telnet tcp 23
+access-list 122 permit   tcp any host <telnet-bastion-host> eq 23
+!
+!smtp 25
+access-list 122 permit   tcp any host <email-server> eq 25
+!
+!DNS 53/53  
+!     note: this takes care of DNS in.  DNS as client
+!	out will require ports >= 1024 for that bastion host
+access-list 122 permit   tcp any host 8.8.8.8 eq 53
+access-list 122 permit   udp any host <dns-server1> eq 53
+
+!
+! tcp 80 http
+access-list 122 permit   tcp any host <web-server> eq 80
+!
+! network time protocol 123/123
+!	consider if this is/is not your border router
+access-list 122 permit   udp any <ntp-server> eq 123
+!
+! may (but should not) allow access to all other unrestricted 
+! ports 1024 and over.  Consider doing this on a per bastion host
+! basis.  Remember this prevents a remote server from talking to
+! a local client.
+!access-list 122 permit   tcp any any eq ge 1024
+!access-list 122 permit   udp any any eq ge 1024
+!
+access-list 122 permit   udp any <ntp-server> eq 123
+!
+! else deny (default anyway)
+access-list 122 deny   ip any any 

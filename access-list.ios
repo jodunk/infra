@@ -1,0 +1,7 @@
+! permit access to a certain subnet
+access-list 122 permit   ip any 103.75.201.0 0.0.0.255
+access-list 122 permit   ip any 103.75.200.0 0.0.0.255
+access-list 122 permit   ip any 27.100.7.0 0.0.0.255
+
+! else deny (default anyway)
+access-list 122 deny   ip any any 

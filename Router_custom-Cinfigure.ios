@@ -1,0 +1,17 @@
+
+! ## Access-List for SNMP ##
+no access-list 60
+
+access-list 60 remark == SNMP RO
+access-list 60 remark -prtg.cdnisp.com
+access-list 60 permit 103.75.201.129
+access-list 60 permit 10.0.20.1
+access-list 60 remark -CDNP_NOC 
+access-list 60 permit 103.75.200.92
+access-list 60 remark -CDNP_NOC->27.100.
+access-list 60 permit 27.100.7.249
+access-list 60 deny any log
+
+! SNMP Configure 
+snmp-server community vpt3915 RW 60
+snmp-server location CAT-NIX

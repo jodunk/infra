@@ -1,0 +1,97 @@
+
+Scrum Roles
+- Product Owner What/Why
+    - is the empowered central point of product leadership
+    - is the only authority responsible for what will be developed and in what order
+    - he maintains and communicates to all other participants a clear vision of what the Scrum team is trying to achieve
+    - as such, the product owner is responsible for the overall success of the solution being developed or maintained.
+- Scrum Master
+    - ทำให้ทุกอย่างเป็นของ Team 
+    - เป็นกลาง
+    - helps everyone involved understand and embrace the Scrum values, principles, and practices
+    - acts as a coach, providing development process leadership
+    - as a facilitator, ScrumMaster helps the team resolve issues and make improvements to its use of Scrum 
+    is responsible for protecting the team from outside interference
+    - takes a leadership role in removing impediments that inhibit team productivity
+    - has no authority to exert control over the team, so this role is not the same as 
+    the traditional role of project manager or development manager. The Scrum-Master functions as a leader, not a manager.
+- Development Team How/How Much Self Manage Team
+
+### Scrum Activities and Artifacts
+- Product Backlog
+- Sprints
+- Sprint Planning part1,2
+- Sprint Execution
+- Daily Scrum
+- Sprint Review
+- Sprint Retrospective
+#3 Atifact
+
+
+# Product Backlog --> Product Owner เป็นคนทำ 
+    ไม่ใช่ req spec  คือ 1 ชิ้น feature ที่อยากให้ทีมทำ
+    จะต้องจัดลำดับความสำคัญแล้ว
+    10 --> Product Backlog item
+    20
+    30
+    40
+    มีการประเมิน Size อยู่แล้ว
+    reqirement ต้องมีข้อกำหนดว่าเสร็จคืออะไร #exceptence criterion
+        ต้องกำหนด Success case
+    
+Sprint Backlog
+PSDI Product increment # Protentaily shipable Product increment
+
+Sprint --> 2 Week
+Sprint part 1: ใช้เพื่อทำความเข้าใจ Product Backlog item โดย Time Block จะใช้เวลา 2 ชั่วโมง Monday 10:00 มีข้อตกลงว่า ถ้ามาสายต้องทำอย่างไร เน้นวินัย 
+    Why 2 hr. PO จะต้องเตรียม Detail 
+    > Foucus ไปที่ Acceptace criteria
+    > จะทำอะไร และ เข้าใจว่าส่งมอบอะไร
+    > Document คือ ถ่ายรูป แล้ว ใส่ Spec ท้ายรายงาน
+Sprint part 2 จะใช้เวลา 2 ชั่วโมง Scrum master จะตัดสินใจว่าต้องเพิ่มเวลา Product Owner เป็น Optional
+    > Detail Design  ถ้าระหว่าง Design มีงานเพิ่มต้องใส่ไปใน Backlog item
+
+    Output จะได้ Product Backlog item   
+    Sprint Backlog เป็นของ Team คนที่มีสิทธ์ขยับงาน คือ Team เอาไว้ Seft-Tracking และ Team Progress
+        - ToDo
+        - Doing
+        - Done
+
+Daily Scrum 15 นาที ทำให้ทีมวางแผนการทำงาน 1 วัน(Daily Planning)
+    >เมื่อวานทำอะไร
+    >วันนี้จะทำอะไร ควร Focus งานเป็นชิ้นๆ
+    >อะไรเป็นอุปสรรค อุปสรรคคืออะไร
+
+Product Backlog reqirement จะทำ จันทร์ บ่าย 2 ชั่วโมง
+    > input 4 Backlog ที่ได้มาเป็นอย่างไรบ้าง จะเอาอย่างไรต่อ วิธีการแก้ปัญหาคืออะไร ตอนจบ Sprint จะได้กี่ใบ เอา Backlog item ใหนออก
+    > คุย Sprint หน้า โดย PO จะ เตรียม 2-3 Backlog
+
+Product Backlog review is not test bug PO 
+ Output จะออกมาเป็น Backlog
+
+ Restrospective Meeting 1-1.5 hr. เป็นจิจกรรมสุดท้าย ทำเสร็จแล้วกลับบ้าน --> Product Owner (Optional) เป็นกิจกรรมเอาไว้ปรับทุกข์
+    - Scrum master ต้องทำให้บรรยากาศมันดีก่อน โดยพูดเรื่องดีๆก่อน
+    - มีอะไรใหมที่จะทำให้มันดีขึ้นกว่านี้
+    - เป็นเรื่องของ Process
+    - good bad try
+    - Traparency Adapt
+
+Inspect Product
+
+Sprint review 2 ชั่วโมง
+
+
+Product Discory
+
+Answer these 5 questions to make a weak retrospective outcome stronger:
+
+What? – identify exactly what experiment you are going to run #(e.g. Dave and Jo will pair program on the riskiest story in the next Sprint)
+Why? – state the hypothesis of why this experiment can be an improvement #(e.g. Pair programming will reduce the risk of error)
+Who? – what single individual will ensure that this happens #(e.g. Jo will own this action)
+When? – what date will this be done by #(e.g. Jo will invite the team to a meeting at the end of the first week)
+How? – how will the team know that this happened #(e.g. at the meeting, Jo will demo all the passing tests and discuss other technical details at the meeting)
+
+1, 3, 4, 66, 74, 79, 125, 126, 131
+
+
+
